@@ -17,15 +17,13 @@
             ]
         }
     },
-    
     "scripts": {
-        "post-autoload-dump": [
-            "@php artisan migrate --path=vendor/exiliensoft/contact/src/database/migrations --force"
+        "post-package-install": [
+            "php artisan migrate"
         ],
-        "pre-uninstall-cmd": [
-            "@php artisan migrate:rollback --path=vendor/exiliensoft/contact/src/database/migrations --force"
+        "post-package-uninstall": [
+            "php artisan migrate:rollback"
         ]
     }
-
 
 }
