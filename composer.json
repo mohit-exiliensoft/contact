@@ -17,6 +17,7 @@
             ]
         }
     },
+    
     "scripts": {
         "post-autoload-dump": [
             "@php artisan migrate --path=vendor/exiliensoft/contact/src/database/migrations --force"
