@@ -5,17 +5,16 @@
     "license": "MIT",
     "minimum-stability": "dev",
     "require": {},
-    "autoload-dev": {
+    "autoload": {
         "psr-4": {
             "Exiliensoft\\Contact\\": "src/"
         }
     },
     "extra": {
-    "laravel": {
-        "providers": [
-            "Exiliensoft\\Contact\\ContactServiceProvider"
-        ]
-       
+        "laravel": {
+            "providers": [
+                "Exiliensoft\\Contact\\ContactServiceProvider"
+            ]
+        }
     }
-}
 }
