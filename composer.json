@@ -18,9 +18,13 @@
         }
     },
     "scripts": {
-    "post-autoload-dump": [
-        "@php artisan migrate"
-    ]
-}
+        "post-autoload-dump": [
+            "@php artisan migrate --path=vendor/exiliensoft/contact/src/database/migrations --force"
+        ],
+        "pre-uninstall-cmd": [
+            "@php artisan migrate:rollback --path=vendor/exiliensoft/contact/src/database/migrations --force"
+        ]
+    }
+
 
 }
