@@ -1,0 +1,13 @@
+{
+    "name": "exiliensoft/contact",
+    "description": "send the email",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload-dev": {
+        "psr-4": {
+            "Exiliensoft\\Contact\\": "src/"
+        }
+    }
+}
