@@ -17,6 +17,7 @@
             ]
         }
     },
+    
     "scripts": {
         "post-package-install": [
             "php artisan migrate"
