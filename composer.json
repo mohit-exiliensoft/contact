@@ -13,7 +13,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Exiliensoft\\Contact\\ContactServiceProvider"
+                "package/contact/src/ContactServiceProvider.php"
             ]
         }
     }
