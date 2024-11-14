@@ -17,8 +17,23 @@ class ContactController extends Controller
 
     public function send(Request $request)
     {
-        Mail::to('mohit@exiliensoft.com')->send(new ContactMailable($request));
-        Contact::create($request->all());
-        return redirect(route('index'));
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'message' => 'required|string',
+        ]);
+    
+        try {
+            $recipientEmail = $request->input('email');
+    
+            Mail::to($recipientEmail)->send(new ContactMailable($request->only(['name', 'email', 'message'])));
+    
+            Contact::create($request->only(['name', 'email', 'message']));
+    
+            return redirect()->route('contact.index')->with('success', 'Your message has been sent successfully!');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'There was an error sending your message. Please try again.');
+        }
     }
+    
 }

@@ -16,5 +16,11 @@
                 "Exiliensoft\\Contact\\ContactServiceProvider"
             ]
         }
-    }
+    },
+    "scripts": {
+    "post-autoload-dump": [
+        "@php artisan migrate"
+    ]
+}
+
 }
