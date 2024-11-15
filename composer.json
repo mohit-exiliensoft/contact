@@ -18,12 +18,12 @@
         }
     },
     "scripts": {
-        "post-package-install": [
-            "php artisan migrate"
-        ],
-        "post-package-uninstall": [
-            "php artisan migrate:rollback"
-        ]
-    }
+    "post-autoload-dump": [
+        "@php artisan migrate --path=package/Exiliensoft/Contact/database/migrations --force"
+    ],
+    "post-remove-cmd": [
+        "@php artisan migrate:rollback --path=package/Exiliensoft/Contact/database/migrations --force"
+    ]
+}
 
 }
