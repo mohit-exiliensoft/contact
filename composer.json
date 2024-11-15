@@ -16,14 +16,5 @@
                 "Exiliensoft\\Contact\\ContactServiceProvider"
             ]
         }
-    },
-    "scripts": {
-    "post-autoload-dump": [
-        "@php artisan migrate --path=package/Exiliensoft/Contact/database/migrations --force"
-    ],
-    "post-remove-cmd": [
-        "@php artisan migrate:rollback --path=package/Exiliensoft/Contact/database/migrations --force"
-    ]
-}
-
+    }
 }

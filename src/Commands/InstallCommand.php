@@ -13,6 +13,12 @@ class InstallCommand extends Command
 
     protected bool $askToRunMigrations = false;
 
+
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     public function handle()
     {
         $action = $this->argument('action');
