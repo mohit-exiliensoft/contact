@@ -13,12 +13,6 @@ class InstallCommand extends Command
 
     protected bool $askToRunMigrations = false;
 
-
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
     public function handle()
     {
         $action = $this->argument('action');
@@ -74,7 +68,7 @@ class InstallCommand extends Command
      */
     public function publishMigrations(): self
     {
-        $migrationsPath = __DIR__ . '/../database/migrations'; // Adjusted relative path
+        $migrationsPath = __DIR__ . '/database/migrations';
 
         if (File::exists($migrationsPath)) {
             $this->publishes([
@@ -96,8 +90,10 @@ class InstallCommand extends Command
     {
         $this->info('Rolling back migrations...');
 
-        // Optional: Adjust path if needed, or let it rollback all migrations
-        $this->call('migrate:rollback', ['--force' => true]);
+        $this->call('migrate:rollback', [
+            '--path' => 'packages/Exiliensoft/Contact/database/migrations',
+            '--force' => true,
+        ]);
 
         $this->info('Migrations rolled back successfully.');
     }
@@ -109,10 +105,9 @@ class InstallCommand extends Command
     {
         $this->info('Deleting database tables associated with the Contact package...');
 
-        // Corrected table name
         if (Schema::hasTable('contacts')) {
             Schema::drop('contacts');
-            $this->info('Table "contacts" deleted.');
+            $this->info('Table "sent_emails" deleted.');
         }
 
         $this->info('Tables deleted successfully.');
