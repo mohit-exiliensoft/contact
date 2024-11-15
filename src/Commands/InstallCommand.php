@@ -68,7 +68,7 @@ class InstallCommand extends Command
      */
     public function publishMigrations(): self
     {
-        $migrationsPath = __DIR__ . '/database/migrations';  // Corrected path
+        $migrationsPath = __DIR__ . '/../database/migrations'; // Adjusted relative path
 
         if (File::exists($migrationsPath)) {
             $this->publishes([
